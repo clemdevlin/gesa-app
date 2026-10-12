@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "GESA UMaT",
+    "slug": "gesa-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "gesa",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#0B0A22",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.gesa.umat"
+    },
+    "android": {
+      "package": "com.gesa.umat",
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "server",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      ["expo-splash-screen", { "backgroundColor": "#0B0A22" }],
+      "expo-secure-store",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
