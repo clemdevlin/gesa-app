@@ -3,7 +3,7 @@ import { useEffect, useState, type ComponentProps } from 'react';
 import { Keyboard, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Text } from '@/components/ui';
+import { GlassPill, Text } from '@/components/ui';
 import { useStyles } from '@/theme';
 
 import { TAB_BAR_HEIGHT, TAB_BAR_MARGIN } from './tabBarMetrics';
@@ -12,7 +12,7 @@ type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>
 
 /**
  * Floating, pill-shaped bottom tab bar. Plug into <Tabs tabBar={(props) => <FloatingTabBar {...props} />} />.
- * Icons come from each screen's `tabBarIcon` option; the active tab is tinted with the accent colour.
+ * Icons come from each screen's `tabBarIcon` option; the active tab gets a frosted-glass pill and the accent colour.
  */
 export function FloatingTabBar({ state, descriptors, navigation }: TabBarProps) {
   const insets = useSafeAreaInsets();
@@ -87,7 +87,8 @@ export function FloatingTabBar({ state, descriptors, navigation }: TabBarProps) 
               accessibilityState={{ selected: focused }}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={({ pressed }) => [styles.item, pressed && styles.itemPressed]}>
+              style={({ pressed }) => [styles.item, pressed && !focused && styles.itemPressed]}>
+              {focused ? <GlassPill inset={4} /> : null}
               <View style={styles.iconWrap}>
                 {/* Our icons take their colour from theme tokens, so the navigator's tint is unused. */}
                 {options.tabBarIcon?.({ focused, color: 'transparent', size: 24 })}

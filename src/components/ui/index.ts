@@ -2,6 +2,7 @@ export { Button } from './Button';
 export { Card } from './Card';
 export { Chip } from './Chip';
 export { EmptyState } from './EmptyState';
+export { GlassPill } from './GlassPill';
 export { GradientCard } from './GradientCard';
 export { Icon } from './Icon';
 export { icons } from './icons';

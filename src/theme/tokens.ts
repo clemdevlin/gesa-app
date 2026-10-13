@@ -38,6 +38,9 @@ export type ColorTokens = {
 
   overlay: string;
   tabBar: string;
+  /** Frosted-glass surface (translucent fill + hairline edge) for highlighted chips and the active tab. */
+  glassFill: string;
+  glassBorder: string;
 };
 
 export type ColorToken = keyof ColorTokens;
@@ -46,7 +49,7 @@ export type Shadow = Pick<ViewStyle, 'shadowColor' | 'shadowOffset' | 'shadowOpa
 
 export type SchemeTokens = {
   colors: ColorTokens;
-  gradients: { brand: Gradient };
+  gradients: { brand: Gradient; glass: Gradient };
   shadows: { card: Shadow };
 };
 
@@ -88,8 +91,10 @@ export const darkScheme: SchemeTokens = {
 
     overlay: alpha(palette.navy[950], 0.7),
     tabBar: palette.navy[900],
+    glassFill: alpha(palette.gold[400], 0.12),
+    glassBorder: alpha(palette.white, 0.2),
   },
-  gradients: { brand: brandGradient },
+  gradients: { brand: brandGradient, glass: [alpha(palette.white, 0.22), alpha(palette.white, 0.02)] },
   shadows: {
     card: {
       shadowColor: palette.navy[950],
@@ -137,8 +142,10 @@ export const lightScheme: SchemeTokens = {
 
     overlay: alpha(palette.navy[950], 0.55),
     tabBar: palette.white,
+    glassFill: alpha(palette.navy[700], 0.07),
+    glassBorder: alpha(palette.navy[700], 0.14),
   },
-  gradients: { brand: brandGradient },
+  gradients: { brand: brandGradient, glass: [alpha(palette.white, 0.95), alpha(palette.white, 0.1)] },
   shadows: {
     card: {
       shadowColor: palette.ink[900],
