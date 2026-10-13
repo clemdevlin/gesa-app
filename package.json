@@ -5,6 +5,8 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.2",
     "@expo-google-fonts/source-serif-4": "^0.4.2",
+    "@neon/config": "^1.9.1",
+    "@neon/env": "^1.6.1",
     "@neondatabase/serverless": "^1.2.0",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@tanstack/react-query": "^5.104.2",

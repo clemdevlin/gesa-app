@@ -46,3 +46,7 @@ example
 .env
 .env.local
 .env.*.local
+
+
+.vscode
+.neon
